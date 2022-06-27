@@ -1,0 +1,87 @@
+table {
+    width: 100%;
+    cursor: pointer;
+  }
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+
+  .expand-button{
+    background-color: transparent;
+    border: none;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    height: 10em;
+    width: 10em;
+  }
+  .example-element-diagram img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5em;
+    width: 20%;
+    margin-top: 0.5em;
+  }
+  .action-buttons button {
+    background-color: black;
+    color: white;
+    padding: 1.5%;
+    width: 50%;
+    align-self: center;
+    margin-bottom: 1em;
+}
+.action-buttons button:hover {
+  opacity: 0.8;
+}
+  

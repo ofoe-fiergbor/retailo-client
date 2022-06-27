@@ -1,0 +1,42 @@
+<div class="nav-bar">
+  <ul>
+    <li [routerLink]="['/']">retailo</li>
+    <li [routerLink]="['/']">Home</li>
+    <li [routerLink]="['/shop']">Shop</li>
+    <li
+      *ngIf="user?.role === 'ADMIN'"
+      [routerLink]="['/request/merchant-request']"
+    >
+      Requests
+    </li>
+    <li 
+    *ngIf="user?.role === 'SELLER'"
+    [routerLink]="['/merchant/dashboard']">Dashboard</li>
+    <li 
+    *ngIf="user?.role === 'ADMIN'"
+    [routerLink]="['/category/dashboard']">Categories</li>
+  </ul>
+
+  <div *ngIf="!isLoggedIn">
+    <p [routerLink]="['/authenticate']">Login</p>
+  </div>
+  <div *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="menu">
+    <p>{{ user?.firstName }} {{ user?.lastName }}</p>
+    <img
+    class="initials"
+      *ngIf="user?.pictureUrl && user?.pictureUrl !== ''; else displayInitials"
+      [src]="user?.pictureUrl"
+    />
+    <ng-template #displayInitials>
+      <p class="initials">{{ nameInitials }}</p>
+    </ng-template>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button [routerLink]="['/profile']" mat-menu-item>
+      <span>Go to profile</span>
+    </button>
+    <button (click)="logout()" mat-menu-item>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</div>

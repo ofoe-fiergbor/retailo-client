@@ -1,0 +1,19 @@
+<div class="container auth-container">
+  <div class="auth-left">
+    <h1>retailo</h1>
+    <app-register
+      *ngIf="!displayLoginForm; else loginForm"
+      (navigateToLogin)="showLoginForm()"
+    ></app-register>
+
+    <ng-template #loginForm>
+      <app-login (navigateToRegister)="showRegisterForm()"></app-login>
+    </ng-template>
+  </div>
+
+  <div class="auth-right">
+    <div>
+      <img src="/assets/image/signup.png" />
+    </div>
+  </div>
+</div>

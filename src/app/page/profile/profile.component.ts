@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
+})
+export class ProfileComponent implements OnInit {
+  showProfile = true;
+  constructor() {}
+
+  ngOnInit(): void {
+  }
+
+  showProfileCompoent() {
+    this.showProfile = true
+  }
+  showSecurityComponent(){
+    this.showProfile = false
+  }
+}

@@ -1,0 +1,38 @@
+h1 {
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.auth-container {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth-container > div, form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.auth-container form input {
+    width: 30vw;
+}
+
+.auth-container button {
+    background-color: #090707;
+    border-radius: 2.5px;
+    width: 30vw;
+}
+
+
+.auth-right{
+    background-color: #F6EDEE;
+}
+.auth-container a {
+    text-decoration: underline;
+    cursor: pointer;
+}

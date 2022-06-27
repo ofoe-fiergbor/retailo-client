@@ -1,0 +1,69 @@
+.home-header {
+  width: 100vw;
+  background-color: red;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-left {
+  width: 50%;
+  display: flex;
+  position: relative;
+  background-color: #BCD7E8;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-left > div > p {
+  font-size:x-large;
+  font-weight: 500;
+}
+.col-left > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+  width: 50%;
+  text-align: start;
+}
+
+.col-left > div > h1 {
+  font-size: 4em;
+  font-family: 'Futara';
+}
+
+.shop-button {
+  width: 25%;
+  outline: none;
+  display: flex;
+  color: white;
+  padding: 2.5%;
+  background-color: black;
+  border-radius: 0;
+  align-items: center;
+  justify-content: center;
+}
+.col-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6EDEE;
+  position: relative;
+}
+.round-shape {
+  background-color: #BCD7E8;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin-bottom: 10rem;
+  position: absolute;
+}
+.col-right > img {
+  height: 90%;
+  z-index: 9;
+}

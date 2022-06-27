@@ -1,0 +1,36 @@
+* {
+    background-color: white;
+}
+.profile {
+    max-height: 93vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+mat-drawer{
+    width: 15vw;
+}
+
+mat-drawer ul {
+    list-style: none;
+    font-size: large;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+mat-drawer ul li{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 100%;
+    cursor: pointer;
+}
+mat-drawer ul li:hover{
+    background-color: rgba(128, 128, 128, 0.233);
+}
+mat-drawer ul li:active{
+    background-color: rgba(128, 128, 128, 0.233);
+}

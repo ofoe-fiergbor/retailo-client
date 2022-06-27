@@ -1,0 +1,30 @@
+form {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 30vw;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field button {
+    background-color: white;
+    border: none;
+}
+
+form > button {
+    background-color: black;
+    color: white;
+    padding: 1.5%;
+    width: 50%;
+    align-self: center;
+}
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1%;
+}
