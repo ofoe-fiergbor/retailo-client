@@ -3,6 +3,7 @@ export interface ProductCategoryModel {
   name: string;
 }
 
+
 export interface ProductCategoryRequestBody {
   name: string;
 }

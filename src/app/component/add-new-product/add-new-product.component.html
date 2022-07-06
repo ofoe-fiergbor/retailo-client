@@ -1,0 +1,89 @@
+<!-- [formGroup]="formGroup" (ngSubmit)="handleFormSubmit()" -->
+<div class="add-new-product">
+  <h1>Add a new product</h1>
+  <form
+    autocomplete="off"
+    [formGroup]="formGroup"
+    (ngSubmit)="handleFormSubmit()"
+    ngNativeValidate
+  >
+    <div class="input-container">
+      <div class="input-container-left">
+        <mat-form-field appearance="outline">
+          <mat-label>Product name</mat-label>
+          <input
+            formControlName="name"
+            matInput
+            placeholder="Enter a catchy product name."
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Product description</mat-label>
+          <textarea
+            placeholder="Tell the audience how awesome your product is."
+            matInput
+            formControlName="description"
+            required
+          ></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Product category</mat-label>
+          <mat-select required formControlName="categoryId">
+            <mat-option
+              *ngFor="let category of productCategories"
+              value="{{ category.id }}"
+            >{{ category.name | uppercase }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <span matPrefix>GHC &nbsp;</span>
+          <input
+            formControlName="price"
+            matInput
+            type="number"
+            placeholder="Enter the product's price"
+            required
+          />
+          <span matSuffix>.00</span>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <input
+            formControlName="quantity"
+            matInput
+            type="number"
+            placeholder="Enter the product's quantity"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Product Visibility Status</mat-label>
+          <mat-select required formControlName="status">
+            <mat-option
+              *ngFor="let status of productStatus"
+              value="{{ status }}"
+            >{{ status }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="input-container-right">
+        <img class="image-placeholder" [src]="imagePlaceholder"/>
+      </div>
+    </div>
+    <div class="button-group">
+      <button>Add product</button>
+      <button (click)="goBack()" type="button">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

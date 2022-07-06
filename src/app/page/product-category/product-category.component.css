@@ -1,0 +1,13 @@
+.merchant-requests{
+    padding: 2% 5%;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 0.5% 0.5%;
+    margin-bottom: 1em;
+    width: 12%;
+    align-self: center;
+}
+

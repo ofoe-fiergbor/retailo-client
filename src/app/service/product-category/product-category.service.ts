@@ -43,4 +43,15 @@ export class ProductCategoryService {
       this.util.httpOptionsWithAuthorization
     );
   }
+
+  errorMessage(status: number) {
+    switch (status) {
+      case 409:
+        this.util.openSnackBar("There's already a category with this name.");
+        break;
+      default:
+        this.util.openSnackBar('Something went wrong. Try again later.');
+        break;
+    }
+  }
 }

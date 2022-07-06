@@ -1,0 +1,28 @@
+.dialog-content{
+    display: flex;
+}
+
+button {
+    width: 30%;
+    padding: 1%;
+    margin-right: 1rem;
+    color: white;
+    background-color: black;
+}
+button:hover {
+    opacity: 0.7;
+}
+
+ul li {
+    text-transform: capitalize;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+.submit-button {
+    width: 80%;
+}

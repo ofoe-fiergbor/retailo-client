@@ -1,0 +1,41 @@
+.product-card {
+  /* background-color: blueviolet; */
+  height: 36vh;
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+}
+
+.product-card:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+P {
+  margin-top: 5px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.name {
+  font-weight: 500;
+}
+.price {
+  font-size: 12px;
+  color: gray;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 1.5%;
+  width: 80%;
+  align-self: center;
+}

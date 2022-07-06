@@ -1,0 +1,14 @@
+.shop-component {
+  margin: 2% 10%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.shop-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  /* background-color: bisque; */
+  gap: 2em;
+}

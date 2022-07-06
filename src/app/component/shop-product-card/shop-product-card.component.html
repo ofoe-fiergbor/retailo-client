@@ -1,0 +1,8 @@
+<div class="product-card">
+  <img [routerLink]="['/shop', product?.id]" [src]="product?.imageUrl" alt="" />
+  <p [routerLink]="['/shop', product?.id]">
+    {{ product?.name }} <br />
+    <span class="price">-- {{ product?.price | currency }} --</span>
+  </p>
+  <button (click)="addToCart()">Add to cart</button>
+</div>

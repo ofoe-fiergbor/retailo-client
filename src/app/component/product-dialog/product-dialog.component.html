@@ -1,0 +1,69 @@
+<h1 mat-dialog-title>{{ data.product.name | uppercase }}</h1>
+<div class="dialog-content" mat-dialog-content>
+  <img [src]="data.product.imageUrl" />
+  <ul *ngIf="!isUpdatable; else updateForm">
+    <li style="list-style: none">{{ data.product.description }}</li>
+    <li>Price - {{ data.product.price | currency }}</li>
+    <li>Available quantity - {{ data.product.quantity }} units</li>
+    <li>Status - {{ data.product.status }}</li>
+    <li>Category - {{ data.product.category.name | uppercase }}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button *ngIf="!isUpdatable" (click)="enableProductUpdate()" mat-button>
+    Update product
+  </button>
+</div>
+
+<ng-template #updateForm>
+  <form [formGroup]="formGroup" class="form-container" ngNativeValidate>
+    <mat-form-field appearance="outline">
+      <mat-label>Product description</mat-label>
+      <textarea
+        placeholder="Tell the audience how awesome your product is."
+        matInput
+        formControlName="description"
+        value="{{ data.product.description }}"
+        required
+      ></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <span matPrefix>GHC &nbsp;</span>
+      <input
+        formControlName="price"
+        matInput
+        value="{{ data.product.price }}"
+        type="number"
+        placeholder="Enter the product's price"
+        required
+      />
+      <span matSuffix>.00</span>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity</mat-label>
+      <input
+        formControlName="quantity"
+        matInput
+        type="number"
+        value="{{ data.product.quantity }}"
+        placeholder="Enter the product quantity"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Visibility Status</mat-label>
+      <mat-select
+        value="{{ data.product.status }}"
+        required
+        formControlName="status"
+      >
+        <mat-option *ngFor="let status of productStatus" value="{{ status }}">{{
+          status
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button (click)="updateProduct()" class="submit-button" mat-dialog-close mat-button>Submit</button>
+  </form>
+</ng-template>

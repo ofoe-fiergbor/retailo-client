@@ -13,6 +13,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { updateUserDetails } from 'src/app/state/auth/auth.action';
 import { MerchantRequestService } from 'src/app/service/merchant-request/merchant-request.service';
 import { MerchantRequestModel } from 'src/app/service/merchant-request/merchant-request.model';
+import { clearCategoryState } from 'src/app/state/category/category.action';
 
 @Component({
   selector: 'app-profile-content',
@@ -133,6 +134,7 @@ export class ProfileContentComponent implements OnInit {
   }
 
   logout() {
+    this.store.dispatch(clearCategoryState());
     this.store.dispatch(clearUserDetails());
     this.router.navigate(['']);
   }

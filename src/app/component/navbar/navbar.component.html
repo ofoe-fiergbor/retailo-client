@@ -9,12 +9,18 @@
     >
       Requests
     </li>
-    <li 
-    *ngIf="user?.role === 'SELLER'"
-    [routerLink]="['/merchant/dashboard']">Dashboard</li>
-    <li 
-    *ngIf="user?.role === 'ADMIN'"
-    [routerLink]="['/category/dashboard']">Categories</li>
+    <li
+      *ngIf="user?.role === 'SELLER'"
+      [routerLink]="['/merchant/dashboard']">Dashboard
+    </li>
+    <li
+      *ngIf="user?.role === 'ADMIN'"
+      [routerLink]="['/category/dashboard']">Categories
+    </li>
+    <li *ngIf="isLoggedIn" [routerLink]="['/shop/shopping-cart']">
+      <mat-icon matBadge='{{numberOfCartElements > 0 ? numberOfCartElements: "" }}' matBadgeColor="warn">shopping_cart
+      </mat-icon>
+    </li>
   </ul>
 
   <div *ngIf="!isLoggedIn">
@@ -23,7 +29,7 @@
   <div *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="menu">
     <p>{{ user?.firstName }} {{ user?.lastName }}</p>
     <img
-    class="initials"
+      class="initials"
       *ngIf="user?.pictureUrl && user?.pictureUrl !== ''; else displayInitials"
       [src]="user?.pictureUrl"
     />

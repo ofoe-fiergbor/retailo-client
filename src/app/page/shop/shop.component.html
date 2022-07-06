@@ -1,1 +1,37 @@
-<p>shop works!</p>
+<div class="shop-component">
+  <mat-form-field appearance="outline">
+    <mat-label>Search Product</mat-label>
+    <input
+      (input)="searchProduct($event)"
+      autocomplete="off"
+      matInput
+      placeholder="Enter product name..."
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <div *ngIf="searchResult.length < 1; else searchRes" class="shop-products">
+    <app-shop-product-card
+      *ngFor="let product of products"
+      [product]="product"
+    ></app-shop-product-card>
+  </div>
+
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="trackPageEvent($event)"
+    aria-label="Select page"
+    *ngIf="searchResult.length < 1"
+  >
+  </mat-paginator>
+</div>
+
+<ng-template #searchRes>
+  <div class="shop-products">
+    <app-shop-product-card
+      *ngFor="let product of searchResult"
+      [product]="product"
+    ></app-shop-product-card>
+  </div>
+</ng-template>

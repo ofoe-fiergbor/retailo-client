@@ -1,1 +1,2 @@
-export const ROOT_URL = 'https://49f2-41-66-232-130.ngrok.io/api';
+export const ROOT_URL = 'http://localhost:8080/api';
+export const imagePlaceholder = 'http://fpoimg.com/300x300?text=Placeholder';

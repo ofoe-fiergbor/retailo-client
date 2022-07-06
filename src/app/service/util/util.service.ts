@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { HttpHeaders } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { AppState } from 'src/app/state/app.state';
 import { getUser, getMerchantRequest } from 'src/app/state/auth/auth.selector';
 import { UserModel } from '../user/user.model';
-import { HttpHeaders } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MerchantRequestModel } from '../merchant-request/merchant-request.model';
+import { ProductCategoryModel } from '../product-category/product-category.model';
+import { getCategories } from 'src/app/state/category/category.selector';
+import {ProductModel} from "../product/product.model";
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +18,7 @@ export class UtilService {
   constructor(private store: Store<AppState>, private snackBar: MatSnackBar) {}
 
   getUsersInitials(firstName: string, lastName: string): string {
-    return (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+    return (firstName?.charAt(0) + lastName?.charAt(0)).toUpperCase();
   }
   getJwtToken() {
     let token: any = undefined;
@@ -27,6 +31,12 @@ export class UtilService {
     this.store.select(getUser).subscribe((data) => (user = data));
     return user;
   }
+  getProductCategories() {
+    let category: ProductCategoryModel[] = [];
+    this.store.select(getCategories).subscribe((data) => (category = data));
+    return category;
+  }
+
   getMerchantRequest() {
     let result: MerchantRequestModel | undefined;
     this.store.select(getMerchantRequest).subscribe((data) => (result = data));
@@ -36,6 +46,18 @@ export class UtilService {
   openSnackBar(message: string, action: string = 'Ok') {
     this.snackBar.open(message, action);
   }
+
+  deepCopyObject(object: any){
+    return JSON.parse(JSON.stringify(object))
+  }
+
+  totalCostCalculator = (products: ProductModel[]): number => {
+  return products.reduce(
+    (previousValue, currentValue) => previousValue + (currentValue.price * currentValue.quantity),
+    0
+  );
+}
+
 
   httpOptions = {
     headers: new HttpHeaders({

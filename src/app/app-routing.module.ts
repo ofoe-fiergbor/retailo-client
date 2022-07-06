@@ -1,21 +1,24 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AuthenticationComponent } from './page/authentication/authentication.component';
-import { HomePageComponent } from './page/home-page/home-page.component';
-import { ShopComponent } from './page/shop/shop.component';
-import { AuthGuard } from './guard/auth-guard/auth.guard';
-import { ProfileComponent } from './page/profile/profile.component';
-import { MerchantDashboardComponent } from './page/merchant-dashboard/merchant-dashboard.component';
-import { MerchantGuard } from './guard/merchant-guard/merchant.guard';
-import { MerchantRequestComponent } from './page/merchant-request/merchant-request.component';
-import { AdminGuard } from './guard/admin-guard/admin.guard';
-import { ProductCategoryComponent } from './page/product-category/product-category.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AddNewProductComponent} from './component/add-new-product/add-new-product.component';
+import {AdminGuard} from './guard/admin-guard/admin.guard';
+import {AuthGuard} from './guard/auth-guard/auth.guard';
+import {MerchantGuard} from './guard/merchant-guard/merchant.guard';
+import {AuthenticationComponent} from './page/authentication/authentication.component';
+import {HomePageComponent} from './page/home-page/home-page.component';
+import {MerchantDashboardComponent} from './page/merchant-dashboard/merchant-dashboard.component';
+import {MerchantRequestComponent} from './page/merchant-request/merchant-request.component';
+import {ProductCategoryComponent} from './page/product-category/product-category.component';
+import {ProfileComponent} from './page/profile/profile.component';
+import {ShopProductDetailsComponent} from './page/shop-product-details/shop-product-details.component';
+import {ShopComponent} from './page/shop/shop.component';
+import {ShoppingCartComponent} from "./page/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'shop', component: ShopComponent },
-  { path: 'authenticate', component: AuthenticationComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {path: '', component: HomePageComponent},
+  {path: 'shop', component: ShopComponent},
+  {path: 'authenticate', component: AuthenticationComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {
     path: 'merchant/dashboard',
     component: MerchantDashboardComponent,
@@ -27,14 +30,30 @@ const routes: Routes = [
     canActivate: [AuthGuard, AdminGuard],
   },
   {
-    path:'category/dashboard',
+    path: 'category/dashboard',
     component: ProductCategoryComponent,
-    canActivate:[AuthGuard, AdminGuard]
-  }
+    canActivate: [AuthGuard, AdminGuard],
+  },
+  {
+    path: 'products/add',
+    component: AddNewProductComponent,
+    canActivate: [AuthGuard, MerchantGuard],
+  },
+  {
+    path: 'shop/shopping-cart',
+    component: ShoppingCartComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'shop/:productId',
+    component: ShopProductDetailsComponent,
+  },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

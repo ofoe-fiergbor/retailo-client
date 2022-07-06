@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Add new category</h1>
+<div mat-dialog-content>
+  <form autocomplete="off" [formGroup]="formGroup" (ngSubmit)="addNewCategory()">
+    <mat-form-field appearance="outline">
+      <mat-label>Category name</mat-label>
+      <input formControlName="name" matInput placeholder="Name of category" />
+    </mat-form-field>
+    <button *ngIf="!hide" mat-button>Submit</button>
+  </form>
+</div>
+<div class="action-button" mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

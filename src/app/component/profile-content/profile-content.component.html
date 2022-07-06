@@ -46,6 +46,7 @@
               disabled
               value="{{ user?.email }}"
               matInput
+              type="email"
               placeholder="Email"
             />
           </mat-form-field>
@@ -82,7 +83,6 @@
               disabled="{{ disableForms }}"
               value="{{ user?.phone }}"
               matInput
-              type="tel"
               placeholder="Phone number"
             />
           </mat-form-field>
@@ -91,6 +91,7 @@
               <mat-label>Phone number</mat-label>
               <input
                 value="{{ user?.phone }}"
+                type="tel"
                 matInput
                 formControlName="phone"
                 placeholder="Phone number"

@@ -1,0 +1,114 @@
+
+.shopping-cart{
+  padding: 2% 10%;
+}
+
+h3 {
+  color: gray;
+}
+
+
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px 0;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.example-element-diagram {
+  height: 10em;
+  width: 10em;
+}
+.example-element-diagram img {
+  width: 100%;
+  height: 100%;
+}
+
+.example-element-detail {
+  display: flex;
+}
+.detail-right{
+  margin-left: 5%;
+}
+.detail-right form{
+  display: flex;
+  flex-direction: column;
+}
+form button, mat-card button {
+  background-color: black;
+  color: white;
+  padding: 2%;
+  width: 100%;
+  align-self: center;
+  margin-bottom: 5%;
+}
+mat-card {
+  margin-top: 5%;
+  display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
+  flex-direction: column;
+  justify-content: end;
+}
+mat-card button {
+  padding: 0.5% 0;
+  width: 20%;
+  margin-left: auto;
+
+}
+form button:nth-child(3) {
+  background-color: #c00000;
+  border: none;
+}
+button:hover {
+  opacity: 0.8;
+}
+.total-container{
+
+  display: flex;
+  justify-content: space-between;
+}
+.total-container h3 {
+  font-weight: bold;
+}
