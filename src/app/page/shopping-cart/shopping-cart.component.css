@@ -75,7 +75,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
   flex-direction: column;
 }
-form button, mat-card button {
+form button, mat-card button, .history-button {
   background-color: black;
   color: white;
   padding: 2%;
@@ -111,4 +111,9 @@ button:hover {
 }
 .total-container h3 {
   font-weight: bold;
+}
+.history-button{
+  width: 10%;
+  padding: 0.5% 0;
+  margin-bottom: 1%;
 }

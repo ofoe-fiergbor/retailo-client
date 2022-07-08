@@ -55,6 +55,8 @@ import { merchantDashboardReducer } from './state/merchant-dashboard/merchant-da
 import { shopReducer } from './state/shop/shop.reducer';
 import { ShoppingCartComponent } from './page/shopping-cart/shopping-cart.component';
 import {MatButtonModule} from "@angular/material/button";
+import { CheckoutHistoryComponent } from './page/checkout-history/checkout-history.component';
+import { HistoryDialogComponent } from './component/history-dialog/history-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import {MatButtonModule} from "@angular/material/button";
     ShopProductCardComponent,
     ShopProductDetailsComponent,
     ShoppingCartComponent,
+    CheckoutHistoryComponent,
+    HistoryDialogComponent,
   ],
   imports: [
     MatInputModule,

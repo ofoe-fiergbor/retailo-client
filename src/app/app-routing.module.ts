@@ -13,6 +13,7 @@ import {ProfileComponent} from './page/profile/profile.component';
 import {ShopProductDetailsComponent} from './page/shop-product-details/shop-product-details.component';
 import {ShopComponent} from './page/shop/shop.component';
 import {ShoppingCartComponent} from "./page/shopping-cart/shopping-cart.component";
+import {CheckoutHistoryComponent} from "./page/checkout-history/checkout-history.component";
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'shop/shopping-cart',
     component: ShoppingCartComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path:'shop/shopping-cart/history',
+    component:CheckoutHistoryComponent,
     canActivate:[AuthGuard]
   },
   {

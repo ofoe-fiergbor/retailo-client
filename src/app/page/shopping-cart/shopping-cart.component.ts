@@ -8,6 +8,7 @@ import {UtilService} from "../../service/util/util.service";
 import {addProductToCart, clearCart, removeProductFromCart} from "../../state/shop/shop.action";
 import {ProductModel} from "../../service/product/product.model";
 import {TransactionService} from "../../service/transaction/transaction.service";
+import {CheckoutProductRequestBody} from "../../service/transaction/transaction.model";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -36,9 +37,10 @@ export class ShoppingCartComponent implements OnInit {
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement?: ProductModel;
 
-  constructor(private store: Store<AppState>,
-              private util: UtilService,
-              private transactionService: TransactionService
+  constructor(
+    private store: Store<AppState>,
+    private util: UtilService,
+    private transactionService: TransactionService
   ) {
   }
 
@@ -54,6 +56,7 @@ export class ShoppingCartComponent implements OnInit {
       })
   }
 
+
   addToCart(element: ProductModel) {
     let elementCopy = this.util.deepCopyObject(element)
     elementCopy.quantity = this.formGroup.value.quantity
@@ -67,9 +70,10 @@ export class ShoppingCartComponent implements OnInit {
   checkout() {
     this.transactionService
       .checkoutShoppingCart(
-        {products: this.dataSource, userId: this.util.getUserDetails()?.id!}
+        {userId: this.util.getUserDetails()?.id!, products: this.getProducts()}
       ).subscribe(
       data => {
+        console.log(data)
         this.store.dispatch(clearCart())
         this.util.openSnackBar("You have successfully checked out your shopping cart.")
       }, error => {
@@ -77,6 +81,18 @@ export class ShoppingCartComponent implements OnInit {
         this.util.openSnackBar("Something went wrong. Try again later.")
       })
 
+  }
+
+  getProducts = (): CheckoutProductRequestBody[] => {
+    let result: CheckoutProductRequestBody[] = []
+    this.dataSource.forEach(product => {
+      result.push({
+        productId: product.id,
+        price: product.price,
+        quantity: product.quantity
+      })
+    })
+    return result;
   }
 
 }
